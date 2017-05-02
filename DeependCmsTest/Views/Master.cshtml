@@ -1,0 +1,86 @@
+﻿@using System.Globalization
+@using Zoombraco.Models
+@using Zoombraco.Views
+@inherits ZoombracoViewPage<IRenderPage<Zoombraco.Models.Page>>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<meta name="description" content="@CurrentPage.siteDescription">*@
+    <title>@Model.Content.BrowserPageTitle</title>
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Merriweather:400,700,300,900" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/fanoe.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+        }
+
+        .header {
+            background-color: #428bca;
+        }
+
+        .site-header {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-sm-12 col-md-4">
+                    <a href="/"><h2 class="site-header">Deepend Test</h2></a>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <nav>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="toggle" class="toggle">
+            <a href="#" class="cross"><span></span></a>
+        </div>
+    </header>
+
+    @RenderBody()
+    <footer class="field dark footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-sm-12 col-md-4">
+                    For Deepend Test. By Balaji Mani
+                </div>
+                
+                <div class="col-xs-8 col-sm-12 col-md-4">
+                    <a href="https://github.com/Balumaji/CodeTest">Source on Github</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/scripts/fanoe.js"></script>
+</body>
+</html>

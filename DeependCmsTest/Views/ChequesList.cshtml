@@ -1,0 +1,52 @@
+﻿@using Zoombraco.Models
+@using Zoombraco.Views
+@using DeependCmsTest.Models.NestedComponents
+
+@{
+    Layout = "Master.cshtml";
+}
+
+@{ 
+    var cheques = Model.Content.ListOfCheques;
+}
+
+@inherits ZoombracoViewPage<RenderPage<DeependCmsTest.Models.Pages.ChequesList>>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-sm-12 col-md-4">
+            <h1>
+                @Model.Content.PageTitle                
+            </h1>
+        </div>
+    </div>
+
+    @if (cheques != null && cheques.Count() > 0)
+    {
+        <div class="row bg-primary header">
+            <div class="col-md-3">Name</div>
+            <div class="col-md-3">Amount</div>
+            <div class="col-md-3">Date</div>
+        </div>
+
+        foreach (NestedComponent content in cheques.OrderByDescending(c => c.Date))
+        {
+            var chqDtl = (NestedCheque)content;
+
+            <a href="/cheques/chequedetail?contentId=@content.Name">
+                <div class="row">
+                    <div class="col-md-3">@chqDtl.ChequeName</div>
+                    <div class="col-md-3">@(string.Format("${0:n}", chqDtl.Amount))</div>
+                    <div class="col-md-3">@chqDtl.Date.ToString("dd-MM-yyyy")</div>
+                </div>
+            </a>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <span>No cheques exists! Please add from backoffice!</span>
+        </div>
+    }  
+
+</div>
